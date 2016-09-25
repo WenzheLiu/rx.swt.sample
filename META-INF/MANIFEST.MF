@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: rx.swt.test;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: rx.swt.test.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .,
+ lib/rxjava-1.1.6.jar,
+ lib/logback-classic-1.1.7.jar,
+ lib/logback-core-1.1.7.jar,
+ lib/slf4j-api-1.7.20.jar
