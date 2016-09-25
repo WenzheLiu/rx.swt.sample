@@ -2,7 +2,6 @@ package rx.swt.test;
 
 import static java.util.stream.Collectors.toList;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -64,18 +63,7 @@ public class DataService {
     
     return Observable.<Data>merge(obsvLoadStatus, obsvLoadRunTime)
         .buffer(500, TimeUnit.MILLISECONDS)
-        .filter(dataList -> !dataList.isEmpty())
-        // remove duplicate and keep latest one
-        .flatMap(dataList -> Observable.from(reverse(dataList)).distinct(data -> data.getId()))
+        .flatMap(dataList -> Observable.from(dataList).distinct())
         ;
-  }
-  
-  private List<Data> reverse(List<Data> dataList) {
-    Data[] result = new Data[dataList.size()];
-    int i = dataList.size();
-    for (Data dt : dataList) {
-      result[--i] = dt;
-    }
-    return Arrays.asList(result);
   }
 }
